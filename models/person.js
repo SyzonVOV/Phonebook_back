@@ -16,7 +16,9 @@ mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true, useFind
   const personSchema = new mongoose.Schema({
     name: String,
     number: String,
-  })
+  });
+
+  mongoose.set('returnOriginal', false);
 
 /* We also don't want to return the mongo versioning field __v to the frontend.
 One way to format the objects returned by Mongoose is to modify the toJSON method of the schema, which is used on all instances of the models produced with that schema. 
